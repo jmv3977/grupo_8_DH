@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/stylesheets/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" icrossorigin="anonymous"></script>
+    <title>Nombre Producto</title>
+</head>
+<body class="bodyCarrito">
+    <!-- header -->
+    <%- include (/partials/header)%>
+
+    <!-- Main product -->
+
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-md-5">
+          <img src="./img/avena-gruesa.jpg" alt="" class = "avena">
+
+        </div>
+        <div class = "col-md-7">
+          <P class = "newArrival text-center"> NEW</P>
+          <h1>Avena gruesa 500g</h1>
+          <h2>$70,00</h2>         
+          <label for="exampleFormControlSelect1">Cantidad</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          <button type="button" class="btn btn-primary btn-lg">Finalizar Compra</button>
+          <h3>Descripcion:</h3>
+            <p>Fuente de energia, proteinas, vitaminas del complejo B, hierro y fibra. Previene constipacion y anemia</p>                  
+        </div>
+        <label for="exampleFormControlTextarea1">Agrega un comentario:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+      </div>
+    </div>
+
+    <!-- seccion ofertas -->
+    <div class = "sale-product">
+        <h2>Productos en oferta</h2>
+        
+    </div>
+        <section class = card1>
+        <div class="card" style="width: 18rem;">
+            <img src="./img/mermelada-frutilla.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Mermelada de frutilla</h5>
+              <p class="card-text">precio$</p>
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <img src="./img/banana-seca.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Banana desecada 500g</h5>
+              <p class="card-text">precio$</p>
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <img src="./img/semilla-sesamo.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Semilla Sesamo 500g</h5>
+              <p class="card-text">precio$</p>
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            </div>
+          </div>
+          </section>
+    
+    
+      
+    <!-- footer -->
+    <%- include (/partials/footer)%>
+    
+</body>
+</html>

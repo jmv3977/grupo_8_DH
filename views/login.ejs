@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/stylesheets/styles.css">
+    <title>Document</title>
+</head>
+
+<body class="bodyCrearCuenta">   
+    <%- include (/partials/header)%>
+    <div>
+        <form class="formCrearCuenta" action="/login" method="POST">
+            <h2 class="tituloFormCrear">¡Hola! Ingresa a tu cuenta:</h2>
+            <input class="inputCrearCuenta" type="email" name="Email" placeholder="Email" required>
+            <input class="inputCrearCuenta" type="password" name="Clave" placeholder="Clave" required>    
+            <input class="inputCrearCuenta" type="button" value="Continuar" id="botonContinuarCrear">
+            <input class="inputCrearCuenta" type="button" value="Crea tu cuenta" id="botonCrearCuenta">
+            <div class=cajaFormulario>
+            <input class="inputCrearCheck" type="checkbox">
+            <h3 class="textoCheckFormulario">Recodar tu email</h3>
+            </div>
+        </form>
+        </div>
+        <%- include (/partials/footer)%> 
+    </body>
+
+</html>

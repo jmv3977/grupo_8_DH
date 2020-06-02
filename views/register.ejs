@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/stylesheets/styles.css">
+    <title>Document</title>
+</head>
+
+<body class="bodyLoginFormulario">
+    <%- include (/partials/header)%>
+
+    <div class="formularioCreaCuenta">
+        <form class="formLoginFormulario" action="/register" method="POST">
+            <h2 class="tituloFormularioLogin">Completa tus datos para crear tu cuenta:</h2>
+            <input class="inputFormularioLogin" type="text" name="Nombre" placeholder="Nombre">
+            <input class="inputFormularioLogin" type="text" name="Apellido" placeholder="Apellido">
+            <input class="inputFormularioLogin" type="email" name="Email" placeholder="Email" required>
+            <input class="inputFormularioLogin" type="password" name="Clave" placeholder="Clave" required>            
+            <input class="inputFormularioLogin" type="button" value="Continuar" id="botonFormularioLogin">
+            
+        </form>
+    </div>
+    
+<%- include (/partials/footer)%> 
+</body>
+
+</html>
