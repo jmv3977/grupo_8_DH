@@ -32,7 +32,7 @@ const loginRouter = require('./routes/login');
 // const profileRouter = require('./routes/profile');
 
 app.use('/', mainRouter);
-app.use('/products', productsRouter);
+//app.use('/products', productsRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 // app.use('/profile', profileRouter);
