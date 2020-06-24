@@ -2,9 +2,9 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img class="logo" src="/images/logoVitalcer.jpeg"></a>
+  <a class="navbar-brand" href="/"><img class="logo" src="/images/logoVitalcer.jpeg"></a>
 
-  <a class= "basket" href="#"><i class="fa fa-shopping-basket" id="basket"></i></a>
+  <a class= "basket" href="carrito"><i class="fa fa-shopping-basket" id="basket"></i></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,23 +13,32 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" id="navbuttons" href="#">REGISTRARSE <span class="sr-only">(current)</span></a>
+        <a class="nav-link" id="navbuttons" href="register">REGISTRARSE <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="navbuttons" href="#">INICIAR SESION</a>
+        <a class="nav-link" id="navbuttons" href="login">INICIAR SESION</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbuttons" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PRODUCTOS
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">POR CATEGORIA</a>
-          <a class="dropdown-item" href="#">DESTACADOS</a>
-          <a class="dropdown-item" href="#">OFERTAS</a>
+          <a class="dropdown-item" href="cereales">CEREALES</a>
+          <a class="dropdown-item" href="especias">ESPECIAS</a>
+          <a class="dropdown-item" href="frutadeshidratada">FRUTA DESHIDRATADA</a>
+          <a class="dropdown-item" href="frutossecos">FRUTOS SECOS</a>
+          <a class="dropdown-item" href="legumbres">LEGUMBRES</a>
+          <a class="dropdown-item" href="suplementos">SUPLEMENTOS</a>
           
         </div>
       </li>
-      
+      <li class="nav-item-destacados">
+        <a class="nav-link" id="navbuttons" href="#">DESTACADOS</a>
+      </li>
+      <li class="nav-item-oferta">
+        <a class="nav-link" id="navbuttons" href="#">EN OFERTA</a>
+      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">

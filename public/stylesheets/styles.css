@@ -1602,8 +1602,8 @@ margin-bottom: 20px;
 }
 
 
-.aHome {
-    color: #00B7FF;
+.productosDestacados {
+    color: rgb(97,181,36);
 }
 
 .bodyCrearCuenta{background-image: url(../images/imagenFormLogin.jpg);

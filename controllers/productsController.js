@@ -35,7 +35,7 @@ const controller = {
 			return product.id == req.params.productId
 		})
 
-		res.render('detail', {product})
+		res.render('vista-producto', {product})
 	},
 
 	// Create - Form to create
