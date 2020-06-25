@@ -1747,14 +1747,11 @@ margin-bottom: 20px;
 }
 
 
-@media (max-width: 575.98px) {
+@media (max-width: 768px) {
     .homeSection {
-        position: relative!important;
-        background-color: rgb(97,181,36);
-        margin-bottom: 60px;
-        margin-top: 10px;
-        text-align: center;
+        display: none;
     }
+
     #carousel {
         display: none;
         }
@@ -1763,7 +1760,7 @@ margin-bottom: 20px;
             margin-top: 15px;}
 
     .imgProDest{
-                width: 50%;
+                width: 35%;
                 
     }
 }
