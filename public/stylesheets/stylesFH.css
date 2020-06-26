@@ -5,17 +5,21 @@ footer {
     height: 100%;
     background-position: center;
     background-size: cover;
-    
-
    }
 
-#socialMediaLogos {
-    text-align: center;
-    
+#titulares{
+  color: white;
+  font-size: 25px;
 }
 
-a {
-    color: white;
+#textoEmpresa{
+  color:white;
+  font-size: 25px;
+}
+
+#socialMediaLogos {
+    text-align: center; 
+    color: red;   
 }
 
 #basket {
