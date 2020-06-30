@@ -18,18 +18,16 @@
       <li class="nav-item">
         <a class="nav-link" id="navbuttons" href="login">INICIAR SESION</a>
       </li>
+      <%- if(locals.categorieas.length > 0){ %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbuttons" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PRODUCTOS
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="cereales">CEREALES</a>
-          <a class="dropdown-item" href="especias">ESPECIAS</a>
-          <a class="dropdown-item" href="frutadeshidratada">FRUTA DESHIDRATADA</a>
-          <a class="dropdown-item" href="frutossecos">FRUTOS SECOS</a>
-          <a class="dropdown-item" href="legumbres">LEGUMBRES</a>
-          <a class="dropdown-item" href="suplementos">SUPLEMENTOS</a>
-          
+          <%locals.categorias.forEach { %>
+          <a class="dropdown-item" href="/products/categorias.id">categorias.name</a>
+          <% } %>
+          <% } %>
         </div>
       </li>
       <li class="nav-item-destacados">

@@ -17,45 +17,14 @@
         <h1 class="textoTituloCategorias">LEGUMBRES</h1>
     </div>
 
+    <% products.forEach(function(product){ %>
+
     <div class="containerProductos container-fluid">
         <div class="divCategoriasProductos row">
             <div class="boxL1">
-                <h3 class="tituloCategorias">Semillas De Quínoa</h3>
+                <h3 class="tituloCategorias"><%= product.name %></h3>
             </div>
-            <div class="boxL2">
-                <h3 class="tituloCategorias">Porotos Pallares</h3>
-            </div>
-            <div class="boxL3">
-                <h3 class="tituloCategorias">Porotos Negros</h3>
-            </div>
-            <div class="boxL4">
-                <h3 class="tituloCategorias">Porotos Mung</h3>
-            </div>
-            <div class="boxL5">
-                <h3 class="tituloCategorias">Porotos Colorados</h3>
-            </div>
-            <div class="boxL6">
-                <h3 class="tituloCategorias">Porotos Alubia</h3>
-            </div>
-            <div class="boxL7">
-                <h3 class="tituloCategorias">Maíz Tostado Original</h3>
-            </div>
-            <div class="boxL8">
-                <h3 class="tituloCategorias">Maíz Pisado Blanco</h3>
-            </div>
-            <div class="boxL9">
-                <h3 class="tituloCategorias">Lentejas</h3>
-            </div>
-            <div class="boxL10">
-                <h3 class="tituloCategorias">Garbanzos</h3>
-            </div>
-            <div class="boxL11">
-                <h3 class="tituloCategorias">Arroz Aromático Basmati</h3>
-            </div>
-            <div class="boxL12">
-                <h3 class="tituloCategorias">Maíz Tostado</h3>
-            </div>
-
+            <% }) %>
         </div>
     </div>
     

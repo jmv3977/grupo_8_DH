@@ -14,16 +14,18 @@
 
     <!-- Main product -->
 
+    <% products.forEach(function(product){ %>
     <div class = "container">
       <div class = "row">
         <div class = "col-md-5">
-          <img src="/images/avena-gruesa.jpg" alt="" class = "avena">
+          <img src="/images/products/<%= product.image %> " alt="" class = "avena">
 
         </div>
         <div class = "col-md-7">
           <P class = "newArrival text-center"> NEW</P>
-          <h1>Avena gruesa 500g</h1>
-          <h2>$70,00</h2>         
+          <h1><%= product.name %></h1>
+          <h2><%= product.price %></h2>
+          <span><%= product.discount %> % OFF</span>         
           <label for="exampleFormControlSelect1">Cantidad</label>
             <select class="form-control" id="exampleFormControlSelect1">
               <option>1</option>
@@ -34,13 +36,10 @@
             </select>
           <button type="button" class="btn btn-primary btn-lg">Agregar al carrito</button>
           <h3>Descripción:</h3>
-            <p>Fuente de energia, proteinas, vitaminas del complejo B, hierro y fibra. Previene constipacion y anemia</p>                  
+            <p><%= product.description %></p>                  
         </div>
-        <label for="exampleFormControlTextarea1">Agrega un comentario:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-      </div>
     </div>
-
+    <% }) %>
     <!-- seccion ofertas -->
     <div class = "sale-product">
         <h2>Productos en oferta</h2>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Vitalcer |  Formulario de creación</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/styles.css">
+      <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Formulario de creación de productos</h2>
+        </div>
+    </div>
+    <div class="col-12">
+        <form action="/products/create/" method="POST">
+            <div class="row product-detail">
+                <div class="col-12 col-md-6">
+                    <label for="name" class="form-label">Nombre del producto:</label>
+                    <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label">Precio del producto:</label>
+                    <input type="text" id="price" name="price" placeholder="Precio" class="form-input">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="discount" class="form-label">Descuento:</label>
+                    <input type="text" id="discount" name="discount" placeholder="Descuento" class="form-input">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="category" class="form-label">Categoría:</label>
+                    <select name="category" id="category" class="form-input">
+                        <option value="">Elegí</option>
+                        <option value="in-sale">En oferta</option>
+                        <option value="visited">Últimos agregados</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="description" class="form-label">Descipción:</label>
+                    <textarea name="description" id="description" class="form-input"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="buy-now-button">Guardar producto</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+    <%- include('partials/footer') %>
+</body>
+</html>
