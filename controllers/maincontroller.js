@@ -11,6 +11,9 @@ const controller = {
 		let inSale = products.filter(function (product) {
 			return product.category == 'in-sale'
 		});
+		let featured = products.filter(function (product) {
+			return product.category == 'featured'	//Productos destacados
+		});
 		
 		res.render('main', {inSale})
 	},    

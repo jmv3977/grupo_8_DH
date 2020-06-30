@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/stylesFH.css">
+    <title>Vitalcer |  Resultado búsqueda</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de la búsqueda: <%= products.length %> </h2>
+			</div>
+			<% if(products.length > 0) { %> 
+				<% products.forEach(function(product){ %>
+				
+                    <div class="containerProductos container-fluid">
+                        <div class="divCategoriasProductos row">
+                            <a href="/products/detail/<%= product.id %> "></a>
+                            <figure class ="">
+                                <img src="/images/products/<%= product.image %> " alt="imagen de producto">
+                            </figure> <!-- completar-->
+                            <div class="boxL1">
+                                <h3 class="tituloCategorias"><%= product.name %></h3>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
+				
+				<% }) %>
+			<% } else { %>
+			<div class="col-12">
+				<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+			</div>
+			<% } %>
+		</div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

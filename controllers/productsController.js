@@ -25,7 +25,7 @@ const controller = {
 	// Root - Show all products
 	root: (req, res) => {
 		// Do the magic
-		res.render('products', {products})
+		res.render('main', {products})
 	},
 
 	// Detail - Detail from one product
