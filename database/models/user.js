@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     id: DataTypes.INTEGER,
     password: DataTypes.STRING,
-    rol: DataTypes.BOOLEAN,
+    rol: DataTypes.INTEGER,
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Products,{
