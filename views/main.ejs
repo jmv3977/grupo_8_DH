@@ -42,17 +42,12 @@
                 <h2 class="productosDestacados">PRODUCTOS DESTACADOS</h2>
               </div>
 
-
+              <% products.forEach(function(product){ %>
             <div class="row columnas">
-                <div class="col-md-12 col-lg-4"><div class="prodest">Leche de Almendras Pampas Vidas 1l
-                  <a href="#" class="aHome"><img class="imgProDest" src="/images/prodest1.png" alt="prodnuevo1"></div></a></div>
-
-                <div class="col-md-12 col-lg-4"><div class="prodest">Granola Integra Clasica 250 gr
-                  <a href="#" class="aHome"><img class="imgProDest" src="/images/prodest2.jpg" alt="prodnuevo1"></div></a></div>
-
-                <div class="col-md-12 col-lg-4"><div class="prodest">Crackines De Arroz Crackines 120 gr
-                <a href="#" class="aHome"><img class="imgProDest" src="/images/prodest3.jpg" alt="prodnuevo1"></div></a></div>
+                <div class="col-md-12 col-lg-4"><div class="prodest"><%= product.name %>
+                  <a href="#" class="aHome"><img class="imgProDest" src="/images/products/<%= product.image %>" alt="prodnuevo1"></div></a></div>
             </div>
+              <% }) %>
         </div>
         
       

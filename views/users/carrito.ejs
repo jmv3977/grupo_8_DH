@@ -46,16 +46,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% products.forEach(function(product){ %>
                     <tr>
                       <th scope="row" class="border-0">
                         <div class="p-2">
-                          <img src="/images/avena-gruesa.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                          <img src="/images/products/<%= product.image %>" alt="imagen de producto" width="70" class="img-fluid rounded shadow-sm">
                           <div class="ml-3 d-inline-block align-middle">
-                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Avena gruesa 500g</a></h5><span class="text-muted font-weight-normal font-italic d-block">Cereales</span>
+                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%= product.name %></a></h5><span class="text-muted font-weight-normal font-italic d-block"><%= categoria.name%></span>
                           </div>
                         </div>
                       </th>
-                      <td class="border-0 align-middle"><strong>$70,00</strong></td>
+                      <td class="border-0 align-middle"><strong><%= product.price %></strong></td>
                       <td class="border-0 align-middle"><select class="form-control" id="exampleFormControlSelect1">
                         <option>1</option>
                         <option>2</option>
@@ -64,47 +65,7 @@
                         <option>5</option>
                       </select></td>
                       <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
-                       
-                       
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <div class="p-2">
-                          <img src="/images/banana-seca.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                          <div class="ml-3 d-inline-block align-middle">
-                            <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Banana desecada 500g</a></h5><span class="text-muted font-weight-normal font-italic">Frutas Desecadas</span>
-                          </div>
-                        </div>
-                      </th>
-                      <td class="align-middle"><strong>$280,00</strong></td>
-                      <td class="align-middle"><select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select></td>
-                      <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <div class="p-2">
-                          <img src="/images/mermelada-frutilla.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                          <div class="ml-3 d-inline-block align-middle">
-                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Mermelada de frutilla</a></h5><span class="text-muted font-weight-normal font-italic">Dulces y Mermeladas</span>
-                          </div>
-                        </div>
-                        <td class="align-middle"><strong>$290,00</strong></td>
-                        <td class="align-middle"><select class="form-control" id="exampleFormControlSelect1">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select></td>
-                        <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                        </td>
+                      <% }) %>  
                     </tr>
                   </tbody>
                 </table>
@@ -132,34 +93,18 @@
     <div class = "similar-product">
         <h2>Productos similares</h2>
     </div>
+    <% products.forEach(function(product){ %>
         <section class = card2>
-        <div class="card" style="width: 18rem;">
-            <img src="/images/almendras.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Almendras 500g</h5>
-              <p class="card-text">precio$</p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            <div class="card" style="width: 18rem;">
+                <img src="/images/products/<%= product.image %>" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title"><%= product.name %></h5>
+                <p class="card-text"><%= product.price %></p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
             </div>
-          </div>
-          
-          <div class="card" style="width: 18rem;">
-            <img src="/images/copos.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Copos de azucar 500g</h5>
-              <p class="card-text">precio$</p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-          </div>
-          
-          <div class="card" style="width: 18rem;">
-            <img src="/images/nuez.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Nuez 250g</h5>
-              <p class="card-text">precio$</p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-          </div>
         </section>
+    <% }) %>
 <!-- footer -->
 <%- include('partials/footer')%> 
 

@@ -14,7 +14,6 @@
 
     <!-- Main product -->
 
-    <% products.forEach(function(product){ %>
     <div class = "container">
       <div class = "row">
         <div class = "col-md-5">
@@ -24,8 +23,20 @@
         <div class = "col-md-7">
           <P class = "newArrival text-center"> NEW</P>
           <h1><%= product.name %></h1>
-          <h2><%= product.price %></h2>
-          <span><%= product.discount %> % OFF</span>         
+         <% if(product.discount > 0) { %> 
+          <div>
+            <h2><%= product.price %></h2>
+            /
+            <span><%= product.discount %> % OFF</span>
+          </div>
+          <div>
+            $<%= product.price - (product.price * product.discount / 100) %>
+          </div>
+          <% } else { %>
+            <div>
+              $<%= product.price %>
+            </div>
+          <% } %>
           <label for="exampleFormControlSelect1">Cantidad</label>
             <select class="form-control" id="exampleFormControlSelect1">
               <option>1</option>
@@ -37,44 +48,30 @@
           <button type="button" class="btn btn-primary btn-lg">Agregar al carrito</button>
           <h3>Descripción:</h3>
             <p><%= product.description %></p>                  
-        </div>
+          </div>
+      </div>
+      <a href="/products/edit/<%= product.id %> " class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/delete/<%= product.id %>?_method=DELETE " method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
+					</article>
     </div>
-    <% }) %>
+  
     <!-- seccion ofertas -->
     <div class = "sale-product">
         <h2>Productos en oferta</h2>
-        
     </div>
+    <% products.forEach(function(product){ %>
         <section class = card1>
         <div class="card" style="width: 18rem;">
-            <img src="/images/mermelada-frutilla.jpg" class="card-img-top" alt="">
+            <img src="/images/products/<%= product.image %>" class="card-img-top" alt="">
             <div class="card-body">
-              <h5 class="card-title">Mermelada de frutilla</h5>
-              <p class="card-text">precio$</p>
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= product.price %></p>
               <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
           </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="/images/banana-seca.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Banana desecada 500g</h5>
-              <p class="card-text">precio$</p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="/images/semilla-sesamo.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">Semilla Sesamo 500g</h5>
-              <p class="card-text">precio$</p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-          </div>
-          </section>
-    
-    
+          <% }) %>
       
     <!-- footer -->
     <%- include('partials/footer')%> 
