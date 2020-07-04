@@ -1,52 +1,38 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-
-function nextId(){
-
-	if(products.length > 0){
-		let ultimoProducto = products[products.length - 1];
-		
-		let id = ultimoProducto.id + 1;
-		
-		return id;
-	}
-
-	return 1;
-	
-}
-
-nextId()
+const {Category, Product} = require('../database/models')
 
 const controller = {
-	// Root - Show all products
-	root: (req, res) => {
-		// Do the magic
-		res.render('main', {products})
+
+    main: (req, res) => {
+		
+		res.render('main', {product})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
-		let product = products.find(function(product){
-			return product.id == req.params.productId
-		})
-
-		res.render('vista-producto', {product})
-	},
-
-	// Create - Form to create
-	create: (req, res) => {
-		// Do the magic
-		res.render('product-create-form');
-	},
 	
-	// Create -  Method to store
+		Product.findByPk(req.params.productId, {
+			  include: ['category', 'user']
+	     })
+		    .then(product => { 
+				return res.render('vista-producto', {product})
+			})
+             .catch(error => console.log(error))		
+
+		
+	},
+
+	// Ir a la vista del formulario 
+	create: (req, res) => {
+		Category.findAll()
+		   .then(categories => {
+		       return res.render('product-create-form', {categories});
+	})
+	.catch(error => console.log(error))
+},
+
+	// Crear producto
 	store: (req, res) => {
-		// Do the magic
+		
 		let newProduct = {
 			id: nextId(),
 			name: req.body.name,
@@ -69,7 +55,7 @@ const controller = {
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
+		
 		let product = products.find(function (product) {
 			return product.id == req.params.productId
 		})
@@ -77,7 +63,7 @@ const controller = {
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		
 		let productosEditados = products.map( product => {
 			if(product.id == req.params.productId){
 				product.name = req.body.name;
@@ -100,7 +86,7 @@ const controller = {
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+		
 		let productosNuevos = products.filter(function(product){
 			return product.id != req.params.id;
 		})
