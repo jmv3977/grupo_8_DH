@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) => {
     idCategory:DataTypes.INTEGER,
     sale:DataTypes.INTEGER,
     top:DataTypes.INTEGER,
-    createdAt:DataTypes.STRING,
-    updatedAt:DataTypes.STRING,
-    deletedAt:DataTypes.STRING,
   }, {});
   Product.associate = function(models) {
     
