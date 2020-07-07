@@ -46,13 +46,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% products.forEach(function(product){ %>
+                    <% products.forEach(function(product, categories){ %>
                     <tr>
                       <th scope="row" class="border-0">
                         <div class="p-2">
-                          <img src="/images/products/<%= product.image %>" alt="imagen de producto" width="70" class="img-fluid rounded shadow-sm">
+                          <img src="/images/products/<%= product.img %>" alt="imagen de producto" width="70" class="img-fluid rounded shadow-sm">
                           <div class="ml-3 d-inline-block align-middle">
-                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%= product.name %></a></h5><span class="text-muted font-weight-normal font-italic d-block"><%= categoria.name%></span>
+                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%= product.name %></a></h5><span class="text-muted font-weight-normal font-italic d-block"><%= categories.name%></span>
                           </div>
                         </div>
                       </th>
@@ -96,7 +96,7 @@
     <% products.forEach(function(product){ %>
         <section class = card2>
             <div class="card" style="width: 18rem;">
-                <img src="/images/products/<%= product.image %>" class="card-img-top" alt="">
+                <img src="/images/products/<%= product.img %>" class="card-img-top" alt="">
               <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
                 <p class="card-text"><%= product.price %></p>

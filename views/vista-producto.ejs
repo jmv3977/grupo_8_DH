@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/stylesFH.css">
-    <title>Vitalcer |  Nombre Producto</title>
+    <title>Vitalcer |  <%= product.name %></title>
 </head>
 <body class="bodyCarrito">
     <!-- header -->
@@ -17,7 +17,7 @@
     <div class = "container">
       <div class = "row">
         <div class = "col-md-5">
-          <img src="/images/products/<%= product.image %> " alt="" class = "avena">
+          <img src="/images/products/<%= product.img %> " alt="" class = "avena">
 
         </div>
         <div class = "col-md-7">
@@ -64,7 +64,7 @@
     <% products.forEach(function(product){ %>
         <section class = card1>
         <div class="card" style="width: 18rem;">
-            <img src="/images/products/<%= product.image %>" class="card-img-top" alt="">
+            <img src="/images/products/<%= product.img %>" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title"><%= product.name %></h5>
               <p class="card-text"><%= product.price %></p>
