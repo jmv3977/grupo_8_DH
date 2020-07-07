@@ -18,14 +18,14 @@
       <li class="nav-item">
         <a class="nav-link" id="navbuttons" href="login">INICIAR SESION</a>
       </li>
-      <%- if(locals.categorieas.length > 0){ %>
+      <%- if(locals.categories.length > 0){ %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbuttons" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PRODUCTOS
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%locals.categorias.forEach { %>
-          <a class="dropdown-item" href="/products/categorias.id"><%= categoria.name%></a>
+          <%locals.categorias.forEach(function(categories)) { %>
+          <a class="dropdown-item" href="/products/categories.id"><%= categories.name%></a>
           <% } %>
           <% } %>
         </div>
