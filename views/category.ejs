@@ -6,36 +6,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/stylesFH.css">
-    <title>Vitalcer |  Suplementos</title>
+    <title>Vitalcer |  Nombre Categoria</title>
 </head>
 <body class="bodyCategorias">
     <%- include('partials/header')%>
 
-    <div class='containerSuplementos container-fluid'></div>
+    <div class='containerLegumbres container-fluid'></div>
 
     <div class="tituloDivisorCategorias">
-        <h1 class="textoTituloCategorias">SUPLEMENTOS</h1>
+        <h1 class="textoTituloCategorias"><%= categoria.name %></h1>
     </div>
 
     <% products.forEach(function(product){ %>
 
     <div class="containerProductos container-fluid">
         <div class="divCategoriasProductos row">
-                <div class="divCategoriasProductos row">
-                    <a href="/products/detail/<%= product.id %> "></a>
-                    <figure class ="">
-                        <img src="/images/products/<%= product.image %> " alt="imagen de producto">
-                    </figure> <!-- completar-->
-                    <div class="boxL1">
-                        <h3 class="tituloCategorias"><%= product.name %></h3>
-                    </div>
-                    <% }) %>
-                </div>
+            <a href="/products/detail/<%= product.id %> "></a>
+            <figure class ="">
+                <img src="/images/products/<%= product.img %> " alt="imagen de producto">
+            </figure> 
+            <div class="boxL1">
+                <h3 class="tituloCategorias"><%= product.name %></h3>
+            </div>
+            <% }) %>
         </div>
-                   
     </div>
     
-
     <%- include('partials/footer')%> 
 </body>
 </html>
