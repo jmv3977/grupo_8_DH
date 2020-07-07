@@ -1,12 +1,7 @@
 const {Category, Product} = require('../database/models')
 
-const controller = {
-
-    main: (req, res) => {
-		
-		res.render('main', {product})
-	},
-
+const controller ={
+	
 	// Detail - Detail from one product
 	detail: (req, res) => {
 	
@@ -26,76 +21,65 @@ const controller = {
 		Category.findAll()
 		   .then(categories => {
 		       return res.render('product-create-form', {categories});
-	})
-	.catch(error => console.log(error))
-},
+        })
+	 .catch(error => console.log(error))
+    },
 
-	// Crear producto
-	store: (req, res) => {
-		
-		let newProduct = {
-			id: nextId(),
-			name: req.body.name,
-			price: req.body.price,
-			discount: req.body.discount,
-			category: req.body.category,
-			description: req.body.description,
-			image: '../public/images/default-image.jpg'
-		}
+ // Create -  Method to store
+ store: (req, res) => {
 
-		let newProducts = [...products, newProduct];
+	let product = req.body;
+	product.img = req.file.filename;
+	product.idUser = req.session.user.id;
 
-		let productsJson = JSON.stringify(newProducts, null, ' ');
+	// return res.send(product)
 
-		fs.writeFileSync(productsFilePath, productsJson);
-
-		res.redirect('/');
-
-	},
+	Product.create(product)
+		.then(product => {
+			return res.redirect('vista-producto' + product.id)
+		})
+},	
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		
-		let product = products.find(function (product) {
-			return product.id == req.params.productId
-		})
-		res.render('product-edit-form', {product})
+
+		const product = Product.findByPk(req.params.productId);
+
+		const categories = Category.findAll();
+
+		Promise.all([product, categories])
+			.then(([product, categories]) => {
+				return res.render('product-edit-form', { product, categories })
+			})
 	},
+
 	// Update - Method to update
 	update: (req, res) => {
-		
-		let productosEditados = products.map( product => {
-			if(product.id == req.params.productId){
-				product.name = req.body.name;
-				product.price = req.body.price;
-				product.discount = req.body.discount;
-				product.category = req.body.category;
-				product.description = req.body.description;
+		let product = req.body;
+		product.idUser = req.session.user.id
+		product.img = req.file.filename
+		Product.update(product, {
+			where: {
+				id: req.params.productId
 			}
-
-			return product;
 		})
+			.then(confirm => {
+				return res.redirect('vista-producto' + req.params.productId)
+			})
+			.catch(error => console.log(error))
 
-		let productsJson = JSON.stringify(productosEditados, null, ' ');
-
-		fs.writeFileSync(productsFilePath, productsJson);
-
-		res.redirect('/');
-
-	},
+	},	
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		
-		let productosNuevos = products.filter(function(product){
-			return product.id != req.params.id;
+
+		Product.destroy({
+			where: {
+				id: req.params.id
+			}
 		})
-
-		let productsJson = JSON.stringify(productosNuevos, null, ' ');
-
-		fs.writeFileSync(productsFilePath, productsJson);
-
-		res.redirect('/');
+			.then(() => res.redirect('/'))
+		
 	}
 };
 
