@@ -1,6 +1,4 @@
 <header>
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/"><img class="logo" src="/images/logoVitalcer.jpeg"></a>
 
@@ -17,17 +15,18 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" id="navbuttons" href="login">INICIAR SESION</a>
-      </li>
-      <%- if(locals.categories.length > 0){ %>
+      </li> 
+      <% locals.categories %> 
+      <% if(locals.categories.length > 0){ %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbuttons" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           PRODUCTOS
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%locals.categorias.forEach(function(categories)) { %>
-          <a class="dropdown-item" href="/products/categories.id"><%= categories.name%></a>
-          <% } %>
-          <% } %>
+          <% locals.categories.forEach(function(categories) { %>
+            <a class="dropdown-item" href="/products/categories.id"><%= categories.name%></a>
+          <% }) %>
+        <% } %>
         </div>
       </li>
       <li class="nav-item-destacados">
