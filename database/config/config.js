@@ -2,9 +2,9 @@ module.exports=
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "vitalcerdb",
-    "port": 8889,
+    "port": 3306,
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": 0
