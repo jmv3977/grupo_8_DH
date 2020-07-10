@@ -1,3 +1,5 @@
+## Modificar los datos de conexión (development) cada uno en su máquina y crear un archivo nuevo `config.js`
+
 module.exports=
 {
   "development": {
