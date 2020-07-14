@@ -56,6 +56,17 @@
     align-content: center;
     
 }
+
+.containerFooter{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-content: center;
+    
+}
+
+
 .avena{
     width: 100%;
 }
@@ -106,6 +117,10 @@
     height: 200px;
 }*/
 
+#cajaTitulares {
+    width: 200%;
+    background-color: rgba(37, 120, 19, 0.5);
+}
 
 .containerCategorias {
     display: flex;
