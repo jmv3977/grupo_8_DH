@@ -23,7 +23,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% locals.categories.forEach(function(categories) { %>
-            <a class="dropdown-item" href="/products/categories.id"><%= categories.name%></a>
+            <a class="dropdown-item" href="/category/<%=categories.id%>"><%= categories.name%></a>
           <% }) %>
         <% } %>
         </div>
