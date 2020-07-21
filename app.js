@@ -30,11 +30,13 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users');
+const categoryRouter= require('./routes/category');
 // const profileRouter = require('./routes/profile');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/category',categoryRouter);
 // app.use('/profile', profileRouter);
 
 

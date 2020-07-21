@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" id="navbuttons" href="register">REGISTRARSE <span class="sr-only">(current)</span></a>
+        <a class="nav-link" id="navbuttons" href="/users/register">REGISTRARSE <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="navbuttons" href="login">INICIAR SESION</a>
+        <a class="nav-link" id="navbuttons" href="/users/login">INICIAR SESION</a>
       </li> 
       <% if(locals.categories.length > 0){ %> 
       <li class="nav-item dropdown">
@@ -23,7 +23,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% locals.categories.forEach(function(categories) { %>
-            <a class="dropdown-item" href="/products/categories.id"><%= categories.name%></a>
+            <a class="dropdown-item" href="/category/<%=categories.id%>"><%= categories.name%></a>
           <% }) %>
       <% } %> 
         </div>
