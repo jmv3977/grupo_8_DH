@@ -1,10 +1,10 @@
 const db = require('../database/models/index.js')
-const Product = db.Product;
+const Products = db.Products;
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 
 const searchController = {
-  index: (req, res) => {
+  /* index: (req, res) => {
     sequelize.query('SELECT * FROM products WHERE deletedAt is NULL ORDER BY RAND() LIMIT 5')
       .then(resultados => {
 
@@ -16,10 +16,10 @@ const searchController = {
       })
 
 
-  },
+  }, */
 
   search: (req, res) => {
-    Product.findAll({
+    Products.findAll({
         where: {
           name: {
             [Op.substring]: req.body.search
@@ -27,7 +27,7 @@ const searchController = {
         }
       })
       .then(function (result) {
-        return res.render('searchProduct', {
+        return res.render('results', {
           result
         })
       })

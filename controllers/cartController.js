@@ -43,7 +43,7 @@ const cartController = {
         db.CartItems.create(item)
       })
       .then(() => {
-        return res.redirect('/carrito')
+        return res.redirect('/cart')
       })
       .catch(error => console.log(error))
   },

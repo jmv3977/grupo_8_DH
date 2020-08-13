@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/"><img class="logo" src="/images/logoVitalcer.jpeg"></a>
 
-  <a class= "basket" href="carrito"><i class="fa fa-shopping-basket" id="basket"></i></a>
+  <a class= "basket" href="/cart">carrito<i class="fa-shopping-basket" id="basket"></i></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -31,13 +31,9 @@
       <li class="nav-item-destacados">
         <a class="nav-link" id="navbuttons" href="#">DESTACADOS</a>
       </li>
-      <li class="nav-item-oferta">
-        <a class="nav-link" id="navbuttons" href="#">EN OFERTA</a>
-      </li>
-
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" method="POST" action="search/search">
+      <input name="search" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
       <button id="buscarbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
   </div>

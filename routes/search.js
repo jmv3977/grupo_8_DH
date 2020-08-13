@@ -26,7 +26,7 @@ var upload = multer({
     }
 });
 
-router.get('/', searchController.index);
+//router.get('/', searchController.index);
 router.post('/search', searchController.search);
 
 module.exports = router;

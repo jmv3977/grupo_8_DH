@@ -1,4 +1,4 @@
-const { Category, Product } = require('../database/models');
+const { Category, Products } = require('../database/models');
 
 const controller = {
 
@@ -6,7 +6,7 @@ const controller = {
 		let categories = Category.findAll({
 	
 		})
-        let products = Product.findAll({
+        let products = Products.findAll({
             where: {
                 idCategory: req.params.id
             

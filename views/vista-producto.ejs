@@ -23,29 +23,12 @@
         <div class = "col-md-7">
           <P class = "newArrival text-center"> NEW</P>
           <h1><%= product.name %></h1>
-         <% if(product.discount > 0) { %> 
-          <div>
-            <h2><%= product.price %></h2>
-            /
-            <span><%= product.discount %> % OFF</span>
-          </div>
-          <div>
-            $<%= product.price - (product.price * product.discount / 100) %>
-          </div>
-          <% } else { %>
-            <div>
-              $<%= product.price %>
-            </div>
-          <% } %>
-          <label for="exampleFormControlSelect1">Cantidad</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          <button type="button" class="btn btn-primary btn-lg">Agregar al carrito</button>
+          <form method="POST" action="/cart/addToCart">
+            <label for="exampleFormControlSelect1">Cantidad</label>
+            <input id="quantity" type="number" name="quantity" value="1" min='1' max='100' step=1> <br>
+            <input type="hidden" value="<%= product.id %>" name="id"> <br>
+            <button class="btn btn-primary btn-lg">Agregar al carrito</button>
+        </form>
           <h3>Descripción:</h3>
             <p><%= product.description %></p>                  
           </div>

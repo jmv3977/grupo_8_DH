@@ -13,30 +13,30 @@
     <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de la búsqueda: <%= products.length %> </h2>
+				<h2 class="products-title">Resultados de la búsqueda: </h2>
 			</div>
-			<% if(products.length > 0) { %> 
-				<% products.forEach(function(product){ %>
-				
-                    <div class="containerProductos container-fluid">
-                        <div class="divCategoriasProductos row">
-                            <a href="/products/detail/<%= product.id %> "></a>
-                            <figure class ="">
-                                <img src="/images/products/<%= product.img %> " alt="imagen de producto">
-                            </figure> 
-                            <div class="boxL1">
-                                <h3 class="tituloCategorias"><%= product.name %></h3>
+            <% if (result.length == 0) { %>
+                <h1 id="not-results" class="uk-heading-line uk-text-center" style="font-weight:200;"><span>No se encontraron
+                        resultados</span></h1>
+                
+         <% } else { %>
+                <div id=productContainer class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+                    <% for( let i = 0; i < result.length; i++ ) { %>
+                        <div>
+                            <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                                <a href="/products/detail/<%= result[i].id %>">
+                                    <div style="height: 300px;">
+                                        <img src="/images/<%= result[i].img %>" alt="producto" class="imagen-producto">
+                                        <p id="name"><%= result[i].name %> </p>
+                                        <p id="price">$<%= result[i].price %> </p>
+                                    </div>
+                                </a>
                             </div>
-                            <% }) %>
                         </div>
-                    </div>
-				
-				<% }) %>
-			<% } else { %>
-			<div class="col-12">
-				<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con tu búsqueda</h2>
-			</div>
-			<% } %>
+                    <% } %>
+                </div>
+            </div>
+        <% }%>
 		</div>
     </div>
     <%- include('partials/footer') %>
