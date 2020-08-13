@@ -1,17 +1,21 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const path = require('path')
-
-// ************ Controller Require ************
 const usersController = require('../controllers/usersController');
+const validator = require('../middlewares/validator');
+const guestMiddleware = require('../middlewares/guest');
+const authtMiddleware = require('../middlewares/auth');
 
-router.get('/register', usersController.register); /* GET - home page */
-router.post('/register', usersController.processRegister); /* GET - search results */
-router.get('/login', usersController.login); /* GET - search results */
-//router.post('/login', [
-    //check('email').isEmail().withMessage('Email invalido'),
-    //check('password').isLength({min: 8}).withMessage('La contraseña debe tener al menos 8 caracteres')
-//], usersController.processLogin); /* GET - search results */
+//register
+router.get('/register', guestMiddleware, usersController.register);
+router.post('/register', guestMiddleware, validator.register,  usersController.processRegister);
+
+//login
+router.get('/login', guestMiddleware, usersController.login); 
+router.post('/login', guestMiddleware, validator.login, usersController.processLogin);
+
+//logout
+router.post('/logout', authtMiddleware, usersController.logout);
+//router.get('/profile/:id', usersController.profile);
 
 module.exports = router;

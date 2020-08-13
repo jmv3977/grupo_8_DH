@@ -4,20 +4,31 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
+const session = require('express-session');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE....
 const categoriesMiddleware = require('./middlewares/categoriesMiddleware');
+const log = require('./middlewares/log')
 
 // ************ express() - (don't touch) ************
 const app = express();
 
 // ************ Middlewares - (don't touch) ************
+app.use(session({
+  secret: 'vitalcer',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.use(express.static(path.join(__dirname, '/public')));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+
+
 app.use(categoriesMiddleware);
+app.use(log);
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -31,12 +42,16 @@ const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users');
 const categoryRouter= require('./routes/category');
-// const profileRouter = require('./routes/profile');
+const cartRouter = require('./routes/cart');
+const searchRouter = require('./routes/search');
+//const profileRouter = require('./routes/profile');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/category',categoryRouter);
+app.use('/cart', cartRouter); 
+app.use('/search', searchRouter);
 // app.use('/profile', profileRouter);
 
 
@@ -48,7 +63,7 @@ app.use((req, res, next) => next(createError(404)));
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.path = req.path;
+  //res.locals.path = req.path;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page

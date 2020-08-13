@@ -13,13 +13,37 @@
     <%- include('../partials/header')%>
     
     <div class="formularioCreaCuenta">
-        <form class="formLoginFormulario" action="/register" method="POST">
+        <form class="formLoginFormulario" action="/users/register" method="POST">
             <h2 class="tituloFormularioLogin">Completa tus datos para crear tu cuenta:</h2>
-            <input class="inputFormularioLogin" type="text" name="Nombre" placeholder="Nombre">
-            <input class="inputFormularioLogin" type="text" name="Apellido" placeholder="Apellido">
-            <input class="inputFormularioLogin" type="email" name="Email" placeholder="Email" required>
-            <input class="inputFormularioLogin" type="password" name="Clave" placeholder="Clave" required>            
-            <input class="inputFormularioLogin" type="button" value="Continuar" id="botonFormularioLogin">
+            <input class="inputFormularioLogin" type="text" name="name" placeholder="Nombre completo">
+            <input class="inputFormularioLogin" type="email" name="email" placeholder="Email" required>
+            <input class="inputFormularioLogin" type="password" name="password" placeholder="Clave" required>
+            <input class="inputFormularioLogin" type="password" name="retype" placeholder="Repetir Contraseña">
+            <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.name){ %>
+                <%= errors.name.msg %>
+                <%	} %>
+                <% } %>
+            </p>
+            <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.email){ %>
+                <%= errors.email.msg %>
+                <%	} %>
+                <% } %>
+            </p> 
+            <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.password){ %>
+                <%= errors.password.msg %>
+                <%	} %>
+                <% } %>
+            </p> 
+            <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.retype){ %>
+                <%= errors.retype.msg %>
+                <%	} %>
+                <% } %>
+            </p>                          
+            <input class="inputFormularioLogin" type="submit" value="Continuar" id="botonFormularioLogin">
             
         </form>
     </div>

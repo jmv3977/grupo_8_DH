@@ -56,22 +56,6 @@
 						</form>
 					</article>
     </div>
-  
-    <!-- seccion ofertas -->
-    <div class = "sale-product">
-        <h2>Productos en oferta</h2>
-    </div>
-    <% products.forEach(function(product){ %>
-        <section class = card1>
-        <div class="card" style="width: 18rem;">
-            <img src="/images/products/<%= product.img %>" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
-              <p class="card-text"><%= product.price %></p>
-              <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-          </div>
-          <% }) %>
       
     <!-- footer -->
     <%- include('partials/footer')%> 

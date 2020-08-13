@@ -1,3 +1,22 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;
+text-align: center;">
+    <h1 style="color: white;"><%= message %></h1>
+    <h3 style="color: white;"><%= error.status %></h3>
+    <h5 style="color: white;"> <%= error.stack %></h5>
+    <a href="/"><button style="
+    background-color: #FF9F0D;
+    color: white;
+    border-radius: 50px;
+    border: transparent;
+    width: 350px;
+    height: 50px;
+    ">VOLVER</button></a>
+</body>
+</html>

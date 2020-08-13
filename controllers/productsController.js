@@ -1,11 +1,13 @@
-const {Category, Product} = require('../database/models')
+const {validationResult} = require('express-validator');
+const {Category, Products} = require('../database/models')
+const db = require('../database/models');
 
 const controller ={
 	
 	// Detail - Detail from one product
 	detail: (req, res) => {
 	
-		Product.findByPk(req.params.productId, {
+		Products.findByPk(req.params.productId, {
 			  include: ['category', 'user']
 	     })
 		    .then(product => { 
@@ -34,7 +36,7 @@ const controller ={
 
 	// return res.send(product)
 
-	Product.create(product)
+	Products.create(product)
 		.then(product => {
 			return res.redirect('vista-producto' + product.id)
 		})
@@ -43,7 +45,7 @@ const controller ={
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		const product = Product.findByPk(req.params.productId);
+		const product = Products.findByPk(req.params.productId);
 
 		const categories = Category.findAll();
 
@@ -58,7 +60,7 @@ const controller ={
 		let product = req.body;
 		product.idUser = req.session.user.id
 		product.img = req.file.filename
-		Product.update(product, {
+		Products.update(product, {
 			where: {
 				id: req.params.productId
 			}
@@ -73,7 +75,7 @@ const controller ={
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 
-		Product.destroy({
+		Products.destroy({
 			where: {
 				id: req.params.id
 			}

@@ -1,8 +1,8 @@
-const { Product } = require('../database/models');
+const { Products } = require('../database/models');
 
 const controller = {
 	root: (req, res) => {
-		let products = Product.findAll({
+		let products = Products.findAll({
 			limit: 3
 		})
 

@@ -13,11 +13,24 @@
     <%- include('../partials/header')%>
     
     <div>
-        <form class="formCrearCuenta" action="/login" method="POST">
+        <form class="formCrearCuenta" action="/users/login" method="POST">
             <h2 class="tituloFormCrear">¡Hola! Ingresa a tu cuenta:</h2>
-            <input class="inputCrearCuenta" type="email" name="Email" placeholder="Email" required>
-            <input class="inputCrearCuenta" type="password" name="Clave" placeholder="Clave" required>    
-            <input class="inputCrearCuenta" type="button" value="Continuar" id="botonContinuarCrear">
+            <input class="inputCrearCuenta" type="email" name="email" placeholder="Email" required>
+                
+                <p class="errores"><% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.email){ %>
+                    <%= errors.email.msg %>
+                    <%	} %>
+                    <% } %>
+                </p>  
+            <input class="inputCrearCuenta" type="password" name="password" placeholder="Clave" required>
+            <p class="errores"  > <% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.password){ %>
+                <%= errors.password.msg %>
+                <%	} %>
+                <% } %>
+            </p>    
+            <input class="inputCrearCuenta" type="submit" value="Continuar" id="botonContinuarCrear">
             <input class="inputCrearCuenta" type="button" value="Crea tu cuenta" id="botonCrearCuenta">
             <div class=cajaFormulario>
             <input class="inputCrearCheck" type="checkbox">
