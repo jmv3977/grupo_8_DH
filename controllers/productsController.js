@@ -27,20 +27,28 @@ const controller ={
 	 .catch(error => console.log(error))
     },
 
- // Create -  Method to store
- store: (req, res) => {
+ 	// Create -  Method to store
+ 	store: (req, res) => {
+		const errors = validationResult(req)
+			if (errors.isEmpty()) {
+		let product = req.body;
+		product.img = req.file.filename;
+		product.idUser = req.session.user.id;
 
-	let product = req.body;
-	product.img = req.file.filename;
-	product.idUser = req.session.user.id;
 
-	// return res.send(product)
+		Products.create(product)
+			.then(product => {
+				return res.redirect('vista-producto' + product.id)
+			})
+			.catch(error => console.log(error))
+		}	else { Category.findAll()
+			.then(categories =>{
 
-	Products.create(product)
-		.then(product => {
-			return res.redirect('vista-producto' + product.id)
-		})
-},	
+	  		return res.render('product-create-form', { categories,  errors: errors.mapped(), old: req.body });
+	  		})
+			.catch(error => console.log(error))
+		}
+		},
 
 	// Update - Form to edit
 	edit: (req, res) => {
@@ -53,14 +61,20 @@ const controller ={
 			.then(([product, categories]) => {
 				return res.render('product-edit-form', { product, categories })
 			})
+			.catch(error => console.log(error))
 	},
 
 	// Update - Method to update
 	update: (req, res) => {
-		let product = req.body;
-		product.idUser = req.session.user.id
-		product.img = req.file.filename
-		Products.update(product, {
+		const errors = validationResult(req)
+		if (errors.isEmpty()) {
+			Products.findByPk(req.params.productId)
+			.then(productoEncontrado => {
+				let product = req.body;
+				product.idUser = req.session.user.id
+				product.img = req.file ? req.file.filename : productoEncontrado.img
+
+				Products.update(product, {
 			where: {
 				id: req.params.productId
 			}
@@ -69,9 +83,26 @@ const controller ={
 				return res.redirect('vista-producto' + req.params.productId)
 			})
 			.catch(error => console.log(error))
+		})
 
-	},	
+	} else {
+		const product = Products.findByPk(req.params.productId);
 
+            const categories = Category.findAll();
+
+            Promise.all([product, categories])
+                .then(([product, categories]) => {
+                        let objeto = {
+                        product,
+                        categories,
+                        errors: errors.mapped(),
+                        old: req.body
+					}
+				return res.render('product-edit-form', objeto)
+					} )
+				.catch(error => console.log(error))
+			}
+		},
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 

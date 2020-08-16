@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { Users, Products } = require('../database/models');
-//const product = require('../database/models/product');
+//const products = require('../database/models/products');
 
 const controller = {
    register: function (req, res) {

@@ -16,6 +16,6 @@ router.post('/edit/:productId', productsController.update); /* PUT - Update in D
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', productsController.destroy); /* DELETE - Delete from DB */
 
-//router.get('/:productId', productsController.show);
+
 
 module.exports = router;

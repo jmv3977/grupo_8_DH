@@ -75,19 +75,19 @@ const cartController = {
         items = itemsEncontrados;
         // Cerrar los items
         return sequelize.query(
-          `UPDATE cartItem SET status = 1 WHERE idUser = ${req.session.user.id} AND status = 0`
+          `UPDATE cartItems SET status = 1 WHERE idUser = ${req.session.user.id} AND status = 0`
         );
       })
       .then(() => {
-        return Cart.findOne({
+        return Carts.findOne({
           order: [
             ["createdAt", "DESC"]
           ],
         });
       })
-      .then((carts) => {
+      .then((cart) => {
         let newCart = {
-          numeroCarrito: carts ? carts.numeroCarrito + 1 : 1,
+          numeroCarrito: cart ? cart.numeroCarrito + 1 : 1,
           total: items.reduce((total, cartProduct) => (total += parseFloat(cartProduct.subtotal)), 0),
           idUser: req.session.user.id,
         };
@@ -95,7 +95,7 @@ const cartController = {
       })
       .then((cart) => {
         return sequelize.query(
-          `UPDATE cartItem SET idCart = ${cart.id} WHERE idUser = ${req.session.user.id} AND idCart IS NULL`
+          `UPDATE cartItems SET idCart = ${cart.id} WHERE idUser = ${req.session.user.id} AND idCart IS NULL`
         );
       })
       .then(() => {
@@ -113,8 +113,8 @@ const cartController = {
          all: true,
        /*   nested: true, */
        },
-     }).then((carts) => {
-       return res.render('history', { carts });
+     }).then((cart) => {
+       return res.render('history', { cart });
      })
        .catch(error => console.log(error))
    }
